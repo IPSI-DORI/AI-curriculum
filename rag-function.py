@@ -5,11 +5,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# 1. csv 읽어오기
+# csv 읽어오기
 courses_df = pd.read_csv('courses.csv')
 lectures_df = pd.read_csv('lectures.csv')
 
-# 2. 텍스트 만들기
+# 텍스트 만들기
 texts = []
 
 for idx, row in courses_df.iterrows():
@@ -30,7 +30,6 @@ db = Chroma.from_texts(
     persist_directory="./chroma_db"  # 로컬 저장할 경로
 )
 
-# 5. 저장
 db.persist()
 
-print("벡터 DB 구축 완료!")
+print("벡터 DB 구축 끝끝")

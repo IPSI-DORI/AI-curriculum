@@ -26,6 +26,7 @@ prompt = ChatPromptTemplate.from_template("""
 {question}
 """)
 
+# 이쪽이 핵심
 user_question = "수학 확률과 통계 강의 추천해줘"
 
 # 5. 벡터DB에서 유사한 데이터 검색
