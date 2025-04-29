@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+import os
 import pandas as pd
 import time
 
@@ -110,7 +111,73 @@ def scrape_course(driver, course_id):
 
 def main():
     course_ids = [
+        # 국어
+        # 국어 - 문학
+        "S20240000899",
+        "S20250000002",
         "S20240000896",
+        # 국어 - 화작
+        "S20240000902",
+        # 국어 - 언어와 매체
+        "S20240000904",
+        
+        # 수학
+        # 수학 - 수학1
+        "S20240000908",
+        "S20240000909",
+        # 수학 - 확통
+        "S20240000912",
+        "S20240000021",
+        # 수학 - 수학2
+        "S20240000910",
+        # 수학 - 1 + 2
+        "S20240000906",
+        # 수학 - 기하
+        "S20240000916",
+        
+        # 영어
+        "S20240000918",
+        "S20240000919",
+        "S20240000920",
+        "S20240000923",
+        "S20240000787",
+        "S20240000924",
+        "S20240000925",
+        
+        # 한국사
+        "S20250000001",
+        "S20240000926",
+        "S20240000927",
+        "S20240000791",
+        "S20240000835",
+        "S20240000852",
+        "S20210001278",
+        
+        # 생활과 윤리
+        "S20240000928",
+        # 윤리와 사상
+        "S20240000931",
+        "S20240000929",
+        # 한국지리
+        "S20240000933",
+        # 동아시아사
+        "S20240000938",
+        # 사회문화
+        "S20240000794",
+        "S20240000945",
+        
+        # 지구과학1
+        "S20240000963",
+        # 생명과학1
+        "S20240000958",
+        # 화학1
+        "S20240000953",
+        # 생명과학1
+        "S20240000960",
+        "S20240000959",
+        # 지구과학1
+        "S20240000965",
+        "S20240000859"
     ]
 
     driver = create_driver()
@@ -149,11 +216,16 @@ def main():
     courses_df = pd.DataFrame(all_courses)
     lectures_df = pd.DataFrame(all_lectures)
 
+    if os.path.exists("courses.csv"):
+        os.remove("courses.csv")
+    if os.path.exists("lectures.csv"):
+        os.remove("lectures.csv")
+
     # CSV 저장
     courses_df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
     lectures_df.to_csv("lectures.csv", index=False, encoding="utf-8-sig")
 
-    print("✅ CSV 파일 저장 완료: courses.csv / lectures.csv")
+    print("CSV 파일 저장 완료: courses.csv / lectures.csv")
 
 if __name__ == "__main__":
     main()
