@@ -20,10 +20,10 @@ for idx, row in lectures_df.iterrows():
     text = f"강의명: {row['title']} / 강의 소개: {row['info']}"
     texts.append(text)
 
-# 3. 임베딩 객체 준비
+# 임베딩 객체 준비
 embeddings = OpenAIEmbeddings()
 
-# 4. 벡터DB 생성 (Chroma)
+# 벡터DB 생성 (Chroma)
 db = Chroma.from_texts(
     texts=texts,
     embedding=embeddings,
