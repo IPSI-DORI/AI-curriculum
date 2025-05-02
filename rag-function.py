@@ -5,31 +5,46 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# csv 읽어오기
 courses_df = pd.read_csv('courses.csv')
 lectures_df = pd.read_csv('lectures.csv')
 
-# 텍스트 만들기
 texts = []
 
-for idx, row in courses_df.iterrows():
-    text = f"코스명: {row['title']} / 강사: {row['teacher']} / 설명: {row['description']} / 리뷰 수: {row['reviews']}"
-    texts.append(text)
+for idx, course_row in courses_df.iterrows():
+    course_id = course_row['course_id']
+    course_title = course_row['title']
+    teacher = course_row['teacher']
+    description = course_row['description']
+    reviews = course_row['reviews']
 
-for idx, row in lectures_df.iterrows():
-    text = f"강의명: {row['title']} / 강의 소개: {row['info']}"
-    texts.append(text)
+    # 해당 코스의 모든 강의 추출
+    related_lectures = lectures_df[lectures_df['course_id'] == course_id]
 
-# 임베딩 객체 준비
+    # 강의 리스트 포맷
+    lecture_texts = []
+    for _, lecture_row in related_lectures.iterrows():
+        lecture_texts.append(f"- {lecture_row['title']} / {lecture_row['info']}")
+
+    lectures_combined = "\n".join(lecture_texts) if lecture_texts else "강의 없음"
+
+    # 최종 통합 텍스트
+    full_text = f"""코스 아이디: {course_id}
+코스명: {course_title}
+강사: {teacher}
+설명: {description}
+리뷰 수: {reviews}
+
+포함된 강의:
+{lectures_combined}
+"""
+    texts.append(full_text)
+
 embeddings = OpenAIEmbeddings()
-
-# 벡터DB 생성 (Chroma)
 db = Chroma.from_texts(
     texts=texts,
     embedding=embeddings,
-    persist_directory="./chroma_db"  # 로컬 저장할 경로
+    persist_directory="./chroma_db"
 )
 
 db.persist()
-
-print("벡터 DB 구축 끝끝")
+print("completed")
