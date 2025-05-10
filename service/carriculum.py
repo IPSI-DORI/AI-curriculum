@@ -19,27 +19,83 @@ def create_driver():
 def get_intro(driver):
     intro_data = {}
     try:
-        title = driver.find_element(By.CSS_SELECTOR, ".tit_wrap .tit").text
-        teacher = driver.find_element(By.CSS_SELECTOR, ".name").text if driver.find_element(By.CSS_SELECTOR, ".name") else ""
-        description = driver.find_element(By.CSS_SELECTOR, ".cont_para").text if driver.find_elements(By.CSS_SELECTOR, ".cont_para") else title
-        intro_data = {"title": title, "teacher": teacher, "description": description}
+        # intro 정보 추출
+        cont_group = driver.find_elements(By.CLASS_NAME, "cont_group")
+
+        title = driver.find_element(
+            By.CSS_SELECTOR,
+            "body > div.wrap > section > div > div.content > form:nth-child(13) > div.all_lecture_info > div.all_lecture_items > div.cont_wrap > div.tit_wrap > h2",
+        ).text
+        teachers = driver.find_elements(By.CSS_SELECTOR, ".name strong")
+
+        if len(teachers) > 1:
+            # teacher = teachers[2].text.strip() + "," + teachers[3].text.strip()
+            teacher = teachers[1].text.strip()
+        else:
+            teacher = teachers[0].text.strip()
+        dds = driver.find_elements(By.CSS_SELECTOR, "dl.cont_info2 dd")
+        dts = driver.find_elements(By.CSS_SELECTOR, "dl.cont_info2 dt")
+        subject = dds[0].text.strip()
+        grade = dds[3].text.strip()
+        if len(cont_group) > 3:
+            description = (
+                driver.find_element(
+                    By.CSS_SELECTOR,
+                    "#gotoTab > div > div > div:nth-child(2) > p.cont_tit",
+                ).text
+                + ":"
+                + driver.find_element(
+                    By.CSS_SELECTOR,
+                    "#gotoTab > div > div > div:nth-child(2) > p.cont_para",
+                ).text
+                + "\n"
+                + driver.find_element(
+                    By.CSS_SELECTOR,
+                    "#gotoTab > div > div > div:nth-child(3) > p.cont_tit",
+                ).text
+                + ":"
+                + driver.find_element(
+                    By.CSS_SELECTOR,
+                    "#gotoTab > div > div > div:nth-child(3) > p.cont_para",
+                ).text
+            )
+        else:
+            description = (
+                dts[1].text.strip()
+                + ":"
+                + dds[1].text.strip()
+                + "\n"
+                + dts[2].text.strip()
+                + ":"
+                + dds[2].text.strip()
+            )
+            print("single info.")
+        intro_data = {
+            "title": title,
+            "teacher": teacher,
+            "subject": subject,
+            "description": description,
+            "grade": grade,
+        }
     except Exception as e:
         print(f"Intro 추출 중 에러 발생: {e}")
     return intro_data
 
 
+# gotoTab > div > div > div:nth-child(2)
+
+
 def get_lectures(driver):
     lectures = []
     try:
-        lecture_items = driver.find_elements(By.CSS_SELECTOR, "div.board_list2 ul li.tbody")
+        lecture_items = driver.find_elements(
+            By.CSS_SELECTOR, "div.board_list2 ul li.tbody"
+        )
         for item in lecture_items:
             try:
                 title = item.find_element(By.CSS_SELECTOR, "p.title").text.strip()
                 info = item.find_element(By.CSS_SELECTOR, "p.info").text.strip()
-                lectures.append({
-                    "title": title,
-                    "info": info
-                })
+                lectures.append({"title": title, "info": info})
             except Exception as e:
                 print(f"개별 강의 추출 에러: {e}")
     except Exception as e:
@@ -49,7 +105,9 @@ def get_lectures(driver):
 
 def get_review_count(driver):
     try:
-        count_text = driver.find_element(By.CSS_SELECTOR, ".board_head.type1 .count_area .tot em").text
+        count_text = driver.find_element(
+            By.CSS_SELECTOR, ".board_head.type1 .count_area .tot em"
+        ).text
         count = int(count_text.replace(",", "").strip())
         return count
     except Exception as e:
@@ -58,7 +116,9 @@ def get_review_count(driver):
 
 
 def scrape_course(driver, course_id):
-    base_url = f"https://www.ebsi.co.kr/ebs/lms/lmsx/retrieveSbjtDtl.ebs?courseId={course_id}"
+    base_url = (
+        f"https://www.ebsi.co.kr/ebs/lms/lmsx/retrieveSbjtDtl.ebs?courseId={course_id}"
+    )
 
     course_data = {"course_id": course_id}
 
@@ -76,7 +136,9 @@ def scrape_course(driver, course_id):
 
     # ===== Lecture 탭 클릭 =====
     try:
-        lecture_tab = driver.find_element(By.CSS_SELECTOR, "a[href='#lecture']")
+        lecture_tab = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "a[href='#lecture']"))
+        )
         lecture_tab.click()
         WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, "div.board_list2"))
@@ -92,10 +154,14 @@ def scrape_course(driver, course_id):
 
     # ===== Epilogue 탭 클릭 =====
     try:
-        epilogue_tab = driver.find_element(By.CSS_SELECTOR, "a[href='#epilogue']")
+        epilogue_tab = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "a[href='#epilogue']"))
+        )
         epilogue_tab.click()
         WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, ".board_head.type1 .count_area .tot em"))
+            EC.presence_of_element_located(
+                (By.CSS_SELECTOR, ".board_head.type1 .count_area .tot em")
+            )
         )
         time.sleep(1)
         course_data["reviews"] = get_review_count(driver)
@@ -108,6 +174,7 @@ def scrape_course(driver, course_id):
 
     return course_data
 
+
 def main():
     course_ids = [
         # 국어
@@ -119,7 +186,6 @@ def main():
         "S20240000902",
         # 국어 - 언어와 매체
         "S20240000904",
-        
         # 수학
         # 수학 - 수학1
         "S20240000908",
@@ -133,7 +199,6 @@ def main():
         "S20240000906",
         # 수학 - 기하
         "S20240000916",
-        
         # 영어
         "S20240000918",
         "S20240000919",
@@ -142,7 +207,6 @@ def main():
         "S20240000787",
         "S20240000924",
         "S20240000925",
-        
         # 한국사
         "S20250000001",
         "S20240000926",
@@ -151,7 +215,6 @@ def main():
         "S20240000835",
         "S20240000852",
         "S20210001278",
-        
         # 생활과 윤리
         "S20240000928",
         # 윤리와 사상
@@ -164,7 +227,6 @@ def main():
         # 사회문화
         "S20240000794",
         "S20240000945",
-        
         # 지구과학1
         "S20240000963",
         # 생명과학1
@@ -176,7 +238,7 @@ def main():
         "S20240000959",
         # 지구과학1
         "S20240000965",
-        "S20240000859"
+        "S20240000859",
     ]
 
     driver = create_driver()
@@ -185,6 +247,8 @@ def main():
     all_lectures = []  # 전체 강의 데이터 모을 리스트
 
     for course_id in course_ids:
+        if course_id == "S20240000859":
+            print("skip S20240000859")
         data = scrape_course(driver, course_id)
 
         # course 메타 데이터
@@ -192,8 +256,10 @@ def main():
             "course_id": data["course_id"],
             "title": data.get("title", ""),
             "teacher": data.get("teacher", ""),
+            "subject": data.get("subject", ""),
             "description": data.get("description", ""),
-            "reviews": data.get("reviews", 0)
+            "reviews": data.get("reviews", 0),
+            "grade": data.get("grade", ""),
         }
         all_courses.append(course_meta)
 
@@ -203,7 +269,7 @@ def main():
             lecture_entry = {
                 "course_id": data["course_id"],  # 어떤 course에 속하는지 알기 위해
                 "title": lecture.get("title", ""),
-                "info": lecture.get("info", "")
+                "info": lecture.get("info", ""),
             }
             all_lectures.append(lecture_entry)
 
@@ -216,10 +282,11 @@ def main():
     lectures_df = pd.DataFrame(all_lectures)
 
     # CSV 저장
-    courses_df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
-    lectures_df.to_csv("lectures.csv", index=False, encoding="utf-8-sig")
+    courses_df.to_csv("courses2.csv", index=False, encoding="utf-8-sig")
+    # lectures_df.to_csv("lectures.csv", index=False, encoding="utf-8-sig")
 
     print("✅ CSV 파일 저장 완료: courses.csv / lectures.csv")
+
 
 if __name__ == "__main__":
     main()
