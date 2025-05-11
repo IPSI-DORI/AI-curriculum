@@ -37,6 +37,7 @@ def get_intro(driver):
         dts = driver.find_elements(By.CSS_SELECTOR, "dl.cont_info2 dt")
         subject = dds[0].text.strip()
         grade = dds[3].text.strip()
+        dificulty_level = dds[2].text.strip()
         if len(cont_group) > 3:
             description = (
                 driver.find_element(
@@ -76,6 +77,10 @@ def get_intro(driver):
             "subject": subject,
             "description": description,
             "grade": grade,
+            "platform": "EBS",
+            "is_paid": False,
+            "price": 0,
+            "dificulty_level": dificulty_level,
         }
     except Exception as e:
         print(f"Intro 추출 중 에러 발생: {e}")
@@ -182,10 +187,15 @@ def main():
         "S20240000899",
         "S20250000002",
         "S20240000896",
+        "S20250000032",
+        # 국어 - 독서
+        "S20250000033",
         # 국어 - 화작
         "S20240000902",
+        "S20250000034",
         # 국어 - 언어와 매체
         "S20240000904",
+        "S20250000035",
         # 수학
         # 수학 - 수학1
         "S20240000908",
@@ -193,10 +203,14 @@ def main():
         # 수학 - 확통
         "S20240000912",
         "S20240000021",
+        "S20250000038",
         # 수학 - 수학2
         "S20240000910",
         # 수학 - 1 + 2
         "S20240000906",
+        "S20250000036",
+        # 수학 - 미적분
+        "S20250000037",
         # 수학 - 기하
         "S20240000916",
         # 영어
@@ -207,6 +221,8 @@ def main():
         "S20240000787",
         "S20240000924",
         "S20240000925",
+        "S20250000039",
+        "S20250000040",
         # 한국사
         "S20250000001",
         "S20240000926",
@@ -215,30 +231,51 @@ def main():
         "S20240000835",
         "S20240000852",
         "S20210001278",
+        "S20250000041",
         # 생활과 윤리
         "S20240000928",
+        "S20250000045",
         # 윤리와 사상
         "S20240000931",
         "S20240000929",
+        "S20250000048",
         # 한국지리
         "S20240000933",
+        "S20250000050",
         # 동아시아사
         "S20240000938",
+        "S20250000043",
+        # 세계사
+        "S20250000046",
+        # 세계지리
+        "S20250000047",
         # 사회문화
         "S20240000794",
         "S20240000945",
-        # 지구과학1
-        "S20240000963",
+        "S20250000044",
         # 생명과학1
         "S20240000958",
-        # 화학1
-        "S20240000953",
-        # 생명과학1
+        "S20250000053",
         "S20240000960",
         "S20240000959",
+        # 생명과학2
+        "S20250000054",
+        # 화학1
+        "S20240000953",
+        "S20250000057",
+        # 화학2
+        "S20250000058",
         # 지구과학1
         "S20240000965",
         "S20240000859",
+        "S20250000055",
+        "S20240000963",
+        # 지구과학2
+        "S20250000056",
+        # 물리1
+        "S20250000051",
+        # 물리2
+        "S20250000052"
     ]
 
     driver = create_driver()
@@ -283,7 +320,7 @@ def main():
 
     # CSV 저장
     courses_df.to_csv("courses2.csv", index=False, encoding="utf-8-sig")
-    # lectures_df.to_csv("lectures.csv", index=False, encoding="utf-8-sig")
+    lectures_df.to_csv("lectures.csv", index=False, encoding="utf-8-sig")
 
     print("✅ CSV 파일 저장 완료: courses.csv / lectures.csv")
 
