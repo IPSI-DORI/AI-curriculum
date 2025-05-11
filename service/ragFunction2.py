@@ -25,7 +25,14 @@ def create_curriculum(get_user_question: str):
     {{
     "recommended_course": {{
         "course_id": "S20240000896",
+        "title": "(코스 아이디에 해당하는 강좌명)",
+        "subject": "(코스 아이디에 해당하는 과목)",
         "teacher": "(코스 아이디에 해당하는 강사)",
+        "grade": "(코스 아이디에 해당하는 학년)",
+        "platform": "(코스 아이디에 해당하는 플랫폼)",
+        "is_paid": "(코스 아이디에 해당하는 유료 여부)",
+        "price": "(코스 아이디에 해당하는 가격)",
+        "difficulty_level": "(코스 아이디에 해당하는 난이도)",
         "description": "(코스 아이디에 해당하는 설명)",
         "reviews": "(course_id에 해당하는 리뷰 수수)"
     }},

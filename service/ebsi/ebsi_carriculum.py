@@ -322,7 +322,7 @@ def main():
     lectures_df = pd.DataFrame(all_lectures)
 
     # CSV 저장
-    courses_df.to_csv("courses2.csv", index=False, encoding="utf-8-sig")
+    courses_df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
     lectures_df.to_csv("lectures.csv", index=False, encoding="utf-8-sig")
 
     print("✅ CSV 파일 저장 완료: courses.csv / lectures.csv")
