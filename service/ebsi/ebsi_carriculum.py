@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import pandas as pd
 import time
 
@@ -159,10 +159,9 @@ def scrape_course(driver, course_id):
 
     # ===== Epilogue 탭 클릭 =====
     try:
-        epilogue_tab = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, "a[href='#epilogue']"))
-        )
-        epilogue_tab.click()
+        # "Epilogue" 탭이 존재하고 클릭 가능한지 확인
+        epilogue_tab = driver.find_element(By.CSS_SELECTOR, "a[href='#epilogue']")
+        driver.execute_script("arguments[0].click();", epilogue_tab)
         WebDriverWait(driver, 20).until(
             EC.presence_of_element_located(
                 (By.CSS_SELECTOR, ".board_head.type1 .count_area .tot em")
@@ -170,11 +169,11 @@ def scrape_course(driver, course_id):
         )
         time.sleep(1)
         course_data["reviews"] = get_review_count(driver)
-    except TimeoutException:
-        print(f"[Timeout] Epilogue 탭 로딩 실패 (course_id: {course_id})")
+    except (TimeoutException, NoSuchElementException):
+        print(f"[Info] Epilogue 탭이 없거나 클릭할 수 없습니다 (course_id: {course_id})")
         course_data["reviews"] = []
     except Exception as e:
-        print(f"[Error] Epilogue 탭 클릭 실패: {e}")
+        print(f"[Error] Epilogue 탭 처리 중 예외 발생: {e}")
         course_data["reviews"] = []
 
     return course_data
@@ -275,7 +274,7 @@ def main():
         # 물리1
         "S20250000051",
         # 물리2
-        "S20250000052"
+        "S20250000052",
     ]
 
     driver = create_driver()
@@ -297,6 +296,10 @@ def main():
             "description": data.get("description", ""),
             "reviews": data.get("reviews", 0),
             "grade": data.get("grade", ""),
+            "platform": data.get("platform", ""),
+            "is_paid": data.get("is_paid", False),
+            "price": data.get("price", 0),
+            "dificulty_level": data.get("dificulty_level", ""),
         }
         all_courses.append(course_meta)
 
