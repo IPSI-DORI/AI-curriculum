@@ -15,7 +15,13 @@ for idx, course_row in courses_df.iterrows():
     course_title = course_row['title']
     teacher = course_row['teacher']
     description = course_row['description']
+    subject = course_row['subject']
     reviews = course_row['reviews']
+    grade = course_row['grade']
+    platform = course_row['platform']
+    is_paid = course_row['is_paid']
+    price = course_row['price']
+    difficulty_level = course_row['difficulty_level']
 
     # 해당 코스의 모든 강의 추출
     related_lectures = lectures_df[lectures_df['course_id'] == course_id]
@@ -33,6 +39,12 @@ for idx, course_row in courses_df.iterrows():
 강사: {teacher}
 설명: {description}
 리뷰 수: {reviews}
+과목: {subject}
+학년: {grade}
+플랫폼: {platform}
+유료 여부: {is_paid}
+가격: {price}
+난이도: {difficulty_level}
 
 포함된 강의:
 {lectures_combined}
