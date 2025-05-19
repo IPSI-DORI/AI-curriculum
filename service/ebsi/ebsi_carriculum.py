@@ -4,6 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import pandas as pd
+import shutil
+import os
 import time
 
 
@@ -179,154 +181,161 @@ def scrape_course(driver, course_id):
     return course_data
 
 
-def main():
-    course_ids = [
-        # 국어
-        # 국어 - 문학
-        "S20240000899",
-        "S20250000002",
-        "S20240000896",
-        "S20250000032",
-        # 국어 - 독서
-        "S20250000033",
-        # 국어 - 화작
-        "S20240000902",
-        "S20250000034",
-        # 국어 - 언어와 매체
-        "S20240000904",
-        "S20250000035",
-        # 수학
-        # 수학 - 수학1
-        "S20240000908",
-        "S20240000909",
-        # 수학 - 확통
-        "S20240000912",
-        "S20240000021",
-        "S20250000038",
-        # 수학 - 수학2
-        "S20240000910",
-        # 수학 - 1 + 2
-        "S20240000906",
-        "S20250000036",
-        # 수학 - 미적분
-        "S20250000037",
-        # 수학 - 기하
-        "S20240000916",
-        # 영어
-        "S20240000918",
-        "S20240000919",
-        "S20240000920",
-        "S20240000923",
-        "S20240000787",
-        "S20240000924",
-        "S20240000925",
-        "S20250000039",
-        "S20250000040",
-        # 한국사
-        "S20250000001",
-        "S20240000926",
-        "S20240000927",
-        "S20240000791",
-        "S20240000835",
-        "S20240000852",
-        "S20210001278",
-        "S20250000041",
-        # 생활과 윤리
-        "S20240000928",
-        "S20250000045",
-        # 윤리와 사상
-        "S20240000931",
-        "S20240000929",
-        "S20250000048",
-        # 한국지리
-        "S20240000933",
-        "S20250000050",
-        # 동아시아사
-        "S20240000938",
-        "S20250000043",
-        # 세계사
-        "S20250000046",
-        # 세계지리
-        "S20250000047",
-        # 사회문화
-        "S20240000794",
-        "S20240000945",
-        "S20250000044",
-        # 생명과학1
-        "S20240000958",
-        "S20250000053",
-        "S20240000960",
-        "S20240000959",
-        # 생명과학2
-        "S20250000054",
-        # 화학1
-        "S20240000953",
-        "S20250000057",
-        # 화학2
-        "S20250000058",
-        # 지구과학1
-        "S20240000965",
-        "S20240000859",
-        "S20250000055",
-        "S20240000963",
-        # 지구과학2
-        "S20250000056",
-        # 물리1
-        "S20250000051",
-        # 물리2
-        "S20250000052",
-    ]
+def crawling_ebs():
+    try:
+        courses_dir = "../../courses.csv"
+        lectures_dir = "../../lectures.csv"
 
-    driver = create_driver()
+        if os.path.exists(courses_dir):
+            shutil.rmtree(courses_dir)
+        if os.path.exists(lectures_dir):
+            shutil.rmtree(lectures_dir)
+        
+        course_ids = [
+            # 국어
+            # 국어 - 문학
+            "S20240000899",
+            "S20250000002",
+            "S20240000896",
+            "S20250000032",
+            # 국어 - 독서
+            "S20250000033",
+            # 국어 - 화작
+            "S20240000902",
+            "S20250000034",
+            # 국어 - 언어와 매체
+            "S20240000904",
+            "S20250000035",
+            # 수학
+            # 수학 - 수학1
+            "S20240000908",
+            "S20240000909",
+            # 수학 - 확통
+            "S20240000912",
+            "S20240000021",
+            "S20250000038",
+            # 수학 - 수학2
+            "S20240000910",
+            # 수학 - 1 + 2
+            "S20240000906",
+            "S20250000036",
+            # 수학 - 미적분
+            "S20250000037",
+            # 수학 - 기하
+            "S20240000916",
+            # 영어
+            "S20240000918",
+            "S20240000919",
+            "S20240000920",
+            "S20240000923",
+            "S20240000787",
+            "S20240000924",
+            "S20240000925",
+            "S20250000039",
+            "S20250000040",
+            # 한국사
+            "S20250000001",
+            "S20240000926",
+            "S20240000927",
+            "S20240000791",
+            "S20240000835",
+            "S20240000852",
+            "S20210001278",
+            "S20250000041",
+            # 생활과 윤리
+            "S20240000928",
+            "S20250000045",
+            # 윤리와 사상
+            "S20240000931",
+            "S20240000929",
+            "S20250000048",
+            # 한국지리
+            "S20240000933",
+            "S20250000050",
+            # 동아시아사
+            "S20240000938",
+            "S20250000043",
+            # 세계사
+            "S20250000046",
+            # 세계지리
+            "S20250000047",
+            # 사회문화
+            "S20240000794",
+            "S20240000945",
+            "S20250000044",
+            # 생명과학1
+            "S20240000958",
+            "S20250000053",
+            "S20240000960",
+            "S20240000959",
+            # 생명과학2
+            "S20250000054",
+            # 화학1
+            "S20240000953",
+            "S20250000057",
+            # 화학2
+            "S20250000058",
+            # 지구과학1
+            "S20240000965",
+            "S20240000859",
+            "S20250000055",
+            "S20240000963",
+            # 지구과학2
+            "S20250000056",
+            # 물리1
+            "S20250000051",
+            # 물리2
+            "S20250000052",
+        ]
 
-    all_courses = []  # 전체 course 메타 데이터 모을 리스트
-    all_lectures = []  # 전체 강의 데이터 모을 리스트
+        driver = create_driver()
 
-    for course_id in course_ids:
-        if course_id == "S20240000859":
-            print("skip S20240000859")
-        data = scrape_course(driver, course_id)
+        all_courses = []  # 전체 course 메타 데이터 모을 리스트
+        all_lectures = []  # 전체 강의 데이터 모을 리스트
 
-        # course 메타 데이터
-        course_meta = {
-            "course_id": data["course_id"],
-            "title": data.get("title", ""),
-            "teacher": data.get("teacher", ""),
-            "subject": data.get("subject", ""),
-            "description": data.get("description", ""),
-            "reviews": data.get("reviews", 0),
-            "grade": data.get("grade", ""),
-            "platform": data.get("platform", ""),
-            "is_paid": data.get("is_paid", False),
-            "price": data.get("price", 0),
-            "dificulty_level": data.get("dificulty_level", ""),
-        }
-        all_courses.append(course_meta)
+        for course_id in course_ids:
+            if course_id == "S20240000859":
+                print("skip S20240000859")
+            data = scrape_course(driver, course_id)
 
-        # lectures 데이터
-        lectures = data.get("lectures", [])
-        for lecture in lectures:
-            lecture_entry = {
-                "course_id": data["course_id"],  # 어떤 course에 속하는지 알기 위해
-                "title": lecture.get("title", ""),
-                "info": lecture.get("info", ""),
+            # course 메타 데이터
+            course_meta = {
+                "course_id": data["course_id"],
+                "title": data.get("title", ""),
+                "teacher": data.get("teacher", ""),
+                "subject": data.get("subject", ""),
+                "description": data.get("description", ""),
+                "reviews": data.get("reviews", 0),
+                "grade": data.get("grade", ""),
+                "platform": data.get("platform", ""),
+                "is_paid": data.get("is_paid", False),
+                "price": data.get("price", 0),
+                "dificulty_level": data.get("dificulty_level", ""),
             }
-            all_lectures.append(lecture_entry)
+            all_courses.append(course_meta)
 
-        print(f"[완료] {course_id}")
+            # lectures 데이터
+            lectures = data.get("lectures", [])
+            for lecture in lectures:
+                lecture_entry = {
+                    "course_id": data["course_id"],  # 어떤 course에 속하는지 알기 위해
+                    "title": lecture.get("title", ""),
+                    "info": lecture.get("info", ""),
+                }
+                all_lectures.append(lecture_entry)
 
-    driver.quit()
+            print(f"[완료] {course_id}")
 
-    # 각각 DataFrame 만들기
-    courses_df = pd.DataFrame(all_courses)
-    lectures_df = pd.DataFrame(all_lectures)
+        driver.quit()
 
-    # CSV 저장
-    courses_df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
-    lectures_df.to_csv("lectures.csv", index=False, encoding="utf-8-sig")
+        # 각각 DataFrame 만들기
+        courses_df = pd.DataFrame(all_courses)
+        lectures_df = pd.DataFrame(all_lectures)
 
-    print("✅ CSV 파일 저장 완료: courses.csv / lectures.csv")
+        # CSV 저장
+        courses_df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
+        lectures_df.to_csv("lectures.csv", index=False, encoding="utf-8-sig")
 
-
-if __name__ == "__main__":
-    main()
+        return("✅ CSV 파일 저장 완료: courses.csv / lectures.csv")
+    except Exception as e:
+        return f"Error occurred: {str(e)}"

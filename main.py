@@ -16,6 +16,12 @@ async def create_vector_db():
     result = create_vector_db()
     return result
 
+@app.post("/api/ai/crawling/ebs")
+async def crawling_ebs():
+    from service.ebsi.ebsi_carriculum import crawling_ebs
+    result = crawling_ebs()
+    return result
+
 @app.get("/api/ai/curriculum")
 async def get_curriculum(user_question: str):
     result = create_curriculum(user_question)
