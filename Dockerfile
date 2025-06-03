@@ -8,8 +8,11 @@ WORKDIR /main
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# gunicorn 실행을 위한 추가 패키지 설치
+RUN pip install gunicorn uvicorn
+
 # 소스 코드 복사
 COPY . .
 
 # 컨테이너 실행 시 커맨드
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["gunicorn", "main:app", "-k", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000", "--workers", "4"]
