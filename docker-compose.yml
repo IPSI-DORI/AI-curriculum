@@ -6,7 +6,7 @@ services:
     expose:
       - "8000"
     volumes:
-      - .:/main
+      - ./app/api:/main
     env_file:
       - ./.env
     environment:
