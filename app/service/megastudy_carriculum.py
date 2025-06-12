@@ -96,9 +96,12 @@ def scrape_megastudy_course(driver, url):
     return data
 
 
-def main():
-    courses_dir = "../../courses.csv"
-    lectures_dir = "../../lectures.csv"
+def main(): 
+    all_courses = []  # 전체 course 메타 데이터 모을 리스트
+    all_lectures = []  # 전체 강의 데이터 모을 리스트
+    
+    courses_dir = "../../courses_mega.csv"
+    lectures_dir = "../../lectures_mega.csv"
 
     if os.path.exists(courses_dir):
         shutil.rmtree(courses_dir)
@@ -112,26 +115,49 @@ def main():
     ]
 
     driver = create_driver()
-    all_data = []
 
     for url in urls:
         match = re.search(r'CHR_CD=(\d+)', url)
         course_id = match.group(1)
-        print(f"크롤링 중: {url}")
         data = scrape_megastudy_course(driver, url)
-        all_data.append(data)
-        print(f"[완료] {data.get('title', 'No Title')}")
+        
+        # course 메타 데이터
+        course_meta = {
+            "course_id": course_id,
+            "title": data.get("title", ""),
+            "teacher": data.get("teacher", ""),
+            "subject": data.get("subject", ""),
+            "description": data.get("description", ""),
+            "reviews": data.get("reviews", 0),
+            "grade": data.get("grade", ""),
+            "platform": data.get("platform", ""),
+            "is_paid": data.get("is_paid", False),
+            "price": data.get("price", 0),
+            "dificulty_level": data.get("dificulty_level", ""),
+        }
+        all_courses.append(course_meta)
+
+        # lectures 데이터
+        lectures = data.get("lectures", [])
+        for lecture in lectures:
+            lecture_entry = {
+                "course_id": course_id,  # 어떤 course에 속하는지 알기 위해
+                "title": lecture.get("title", ""),
+                "info": lecture.get("info", ""),
+            }
+            all_lectures.append(lecture_entry)
+
+        print(f"[완료] {course_id}")
 
     driver.quit()
+    
+    # 각각 DataFrame 만들기
+    courses_df = pd.DataFrame(all_courses)
+    lectures_df = pd.DataFrame(all_lectures)
 
-    # 결과 출력
-    for d in all_data:
-        print("\n", "-" * 40)
-        for k, v in d.items():
-            print(f"{k}: {v}")
-
-    return all_data
-
+    # CSV 저장
+    courses_df.to_csv("courses_mega.csv", index=False, encoding="utf-8-sig")
+    lectures_df.to_csv("lectures_mega.csv", index=False, encoding="utf-8-sig")
 
 if __name__ == "__main__":
     main()
