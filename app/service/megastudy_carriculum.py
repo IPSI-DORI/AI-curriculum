@@ -109,9 +109,107 @@ def main():
         shutil.rmtree(lectures_dir)
     
     urls = [
+        # 국어
         "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56856&MAKE_FLG=2&tec_cd=megabori",
-        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56506&MAKE_FLG=2&tec_cd=goodwill96",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56188&MAKE_FLG=1&tec_cd=megabori",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=53622&MAKE_FLG=1&tec_cd=megakdw",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56255&MAKE_FLG=1&tec_cd=youb41",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55960&MAKE_FLG=1&tec_cd=youb41",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55586&MAKE_FLG=2&tec_cd=kingofmega",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56086&MAKE_FLG=1&tec_cd=memgacih",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55713&MAKE_FLG=1&tec_cd=megabori",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55756&MAKE_FLG=1&tec_cd=kehsck1",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55055&MAKE_FLG=1&tec_cd=giftedkor",
+        
+        # 수학
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55570&MAKE_FLG=1&tec_cd=woojinmath",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55571&MAKE_FLG=1&tec_cd=woojinmath",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55573&MAKE_FLG=1&tec_cd=woojinmath",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55572&MAKE_FLG=1&tec_cd=woojinmath",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49443&MAKE_FLG=1&tec_cd=megakse",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55742&MAKE_FLG=1&tec_cd=bulbaiyang1",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=43298&MAKE_FLG=1&tec_cd=woojinmath",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=43465&MAKE_FLG=1&tec_cd=woojinmath",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=51811&MAKE_FLG=1&tec_cd=kihyun6",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=51810&MAKE_FLG=1&tec_cd=kihyun6",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=47465&MAKE_FLG=1&tec_cd=megakse",
         "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=54613&MAKE_FLG=1&tec_cd=woojinmath",
+        
+        # 영어
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56146&MAKE_FLG=2&tec_cd=sayyeah97",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56506&MAKE_FLG=2&tec_cd=goodwill96",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56752&MAKE_FLG=2&tec_cd=rimbaud666",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56478&MAKE_FLG=1&tec_cd=kichery",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=54627&MAKE_FLG=1&tec_cd=megatddo",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55361&MAKE_FLG=1&tec_cd=megakkh",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55362&MAKE_FLG=1&tec_cd=megakkh",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56498&MAKE_FLG=1&tec_cd=thedeok",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55731&MAKE_FLG=1&tec_cd=secondsense",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55421&MAKE_FLG=1&tec_cd=secondsense",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56351&MAKE_FLG=1&tec_cd=megalara",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55807&MAKE_FLG=1&tec_cd=megalara",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=51722&MAKE_FLG=1&tec_cd=secondsense",
+        
+        # 한국지리
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55628&MAKE_FLG=1&tec_cd=lksbutt",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55866&MAKE_FLG=1&tec_cd=lksbutt",
+        
+        # 세계지리
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55629&MAKE_FLG=1&tec_cd=lksbutt",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55868&MAKE_FLG=1&tec_cd=lksbutt",
+        
+        # 동아시아사
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55710&MAKE_FLG=1&tec_cd=mp1204",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=53588&MAKE_FLG=1&tec_cd=hellohw2",
+        
+        # 세계사
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55711&MAKE_FLG=1&tec_cd=mp1204",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55966&MAKE_FLG=1&tec_cd=hellohw2"
+        
+        # 생활과 윤리
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55640&MAKE_FLG=1&tec_cd=jjong3307",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55679&MAKE_FLG=1&tec_cd=djwnsrb",
+        
+        # 윤리와 사상
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55641&MAKE_FLG=1&tec_cd=jjong3307",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55680&MAKE_FLG=1&tec_cd=djwnsrb",
+        
+        # 사회문화
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55612&MAKE_FLG=1&tec_cd=kasuwon2",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55614&MAKE_FLG=1&tec_cd=deathology",
+        
+        # 정치와 법
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55613&MAKE_FLG=1&tec_cd=deathology",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55774&MAKE_FLG=1&tec_cd=hnp42w",
+        
+        # 경제
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55676&MAKE_FLG=1&tec_cd=smartwyh",
+        
+        # 물리학
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55609&MAKE_FLG=1&tec_cd=vudda77",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55610&MAKE_FLG=1&tec_cd=vudda77",
+        
+        # 화학1
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55973&MAKE_FLG=1&tec_cd=woomaria",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55714&MAKE_FLG=1&tec_cd=wjddnwjd81",
+        
+        # 화학2
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49328&MAKE_FLG=1&tec_cd=kodori15th",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49376&MAKE_FLG=1&tec_cd=wjddnwjd81",
+        
+        # 생명과학1
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55607&MAKE_FLG=1&tec_cd=gkswhdcjf",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49278&MAKE_FLG=1&tec_cd=gkswhdcjf",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55648&MAKE_FLG=1&tec_cd=bis100",
+        
+        # 지구과학1
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55605&MAKE_FLG=1&tec_cd=cs6425",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55699&MAKE_FLG=1&tec_cd=ozscience",
+        
+        # 지구과학2
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49414&MAKE_FLG=1&tec_cd=ozscience",
+        "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49325&MAKE_FLG=1&tec_cd=ozscience"
+        
     ]
 
     driver = create_driver()
@@ -133,7 +231,8 @@ def main():
             "platform": data.get("platform", ""),
             "is_paid": data.get("is_paid", False),
             "price": data.get("price", 0),
-            "dificulty_level": data.get("dificulty_level", ""),
+            "dificulty_level": data.get("dificulty_level", ""), 
+            # 난이도는 메가 스터디에 아직 없고 수강 대상을 수집해 나중에 ai한테 부탁할지 고민 
         }
         all_courses.append(course_meta)
 
