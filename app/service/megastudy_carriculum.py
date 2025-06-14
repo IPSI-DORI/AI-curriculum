@@ -47,7 +47,29 @@ def scrape_megastudy_course(driver, url):
     except:
         data["teacher"] = ""
         data["subject"] = ""
-
+    
+    # 강좌 유형 추출    
+    try:
+        type = driver.find_element(By.CSS_SELECTOR, "#wrap_2014 > div.column_main > div.column_right > div.l_lst2018 > div.bx_detail > div.bx_detail--infos > div > ul > li:nth-child(1) > dl:nth-child(2) > dd").text.strip()
+        data["type"] = type
+    except:
+        data["type"] = ""
+        
+    # 총 강의 수
+    try:
+        total_lectures = driver.find_element(By.CSS_SELECTOR, "#wrap_2014 > div.column_main > div.column_right > div.l_lst2018 > div.bx_detail > div.bx_detail--infos > div > ul > li:nth-child(2) > dl:nth-child(1) > dd").text.strip()
+        match = re.search(r'총\s*(\d+)강', total_lectures)
+        data["total_lectures"] = (match.group(1) + "강").strip()
+    except:
+        data["total_lectures"] = 0
+    
+    # 수강 기간
+    try:
+        duration_total = driver.find_element(By.CSS_SELECTOR, "#wrap_2014 > div.column_main > div.column_right > div.l_lst2018 > div.bx_detail > div.bx_detail--infos > div > ul > li:nth-child(2) > dl:nth-child(2) > dd").text.strip()
+        data["duration_total"] = duration_total
+    except:
+        data["duration_total"] = ""
+        
     try:
         # 수강 대상 및 과목 정보 (타겟/과목명/학년 등 포함됨)
         info_area = driver.find_element(By.CSS_SELECTOR, "#wrap_2014 > div.column_main > div.column_right > div.l_lst2018 > div.bx_detail > div.bx_detail--infos > div > ul > li:nth-child(1) > dl:nth-child(1) > dd").text.strip()
