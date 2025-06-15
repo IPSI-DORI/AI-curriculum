@@ -9,7 +9,7 @@ load_dotenv()
 
 def create_vector_db():
     try:
-        db_dir = "./chroma_db"
+        db_dir = "../../chroma_db"
         if os.path.exists(db_dir):
             shutil.rmtree(db_dir)
             
