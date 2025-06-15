@@ -71,3 +71,14 @@ def create_vector_db():
         return "Vector DB created successfully"
     except Exception as e:
         return f"Error occurred: {str(e)}"
+    
+def delete_vector_db():
+    try:
+        db_dir = "chroma_db"
+        if os.path.exists(db_dir):
+            shutil.rmtree(db_dir)
+            return "Vector DB deleted successfully"
+        else:
+            return "Vector DB does not exist"
+    except Exception as e:
+        return f"Error occurred: {str(e)}"
