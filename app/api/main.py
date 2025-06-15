@@ -26,3 +26,11 @@ async def crawling_ebs():
 async def get_curriculum(user_question: str):
     result = create_curriculum(user_question)
     return result
+
+@app.get("/api/ai/test")
+async def test():
+    from app.utils.s3_utils import read_all_csv_from_s3
+    csv_files = read_all_csv_from_s3()
+    return {"files": [file[0] for file in csv_files]}
+    
+    
