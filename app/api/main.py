@@ -18,7 +18,7 @@ async def create_vector_db():
 
 @app.post("/api/ai/crawling/ebs")
 async def crawling_ebs():
-    from service.ebsi.ebsi_carriculum import crawling_ebs
+    from service.ebsi_carriculum import crawling_ebs
     result = crawling_ebs()
     return result
 

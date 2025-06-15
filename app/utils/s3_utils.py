@@ -26,7 +26,7 @@ def upload_to_s3(file_name: str):
     client.upload_file(input_file_name, bucket, key)  # 파일 저장
 
 
-def read_csv_from_s3(prefix: str = ""):
+def read_all_csv_from_s3(prefix: str = ""):
     client = boto3.client(
         "s3",
         aws_access_key_id=AWS_ACCESS_KEY,
@@ -42,7 +42,4 @@ def read_csv_from_s3(prefix: str = ""):
             obj_data = client.get_object(Bucket=bucket, Key=key)
             csv_files.append((key, BytesIO(obj_data["Body"].read())))
     
-    for csv_file in csv_files:
-        data = pd.read_csv(csv_file[1], encoding='utf-8')
-        print(data)   
     return csv_files
