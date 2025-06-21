@@ -24,7 +24,6 @@ def create_vector_db():
             teacher = course_row['teacher']
             description = course_row['description']
             subject = course_row['subject']
-            reviews = course_row['reviews']
             grade = course_row['grade']
             platform = course_row['platform']
             is_paid = course_row['is_paid']
@@ -42,19 +41,18 @@ def create_vector_db():
             lectures_combined = "\n".join(lecture_texts) if lecture_texts else "강의 없음"
 
             # 최종 통합 텍스트
-            full_text = f"""코스 아이디: {course_id}
-        코스명: {course_title}
-        강사: {teacher}
-        설명: {description}
-        리뷰 수: {reviews}
-        과목: {subject}
-        학년: {grade}
-        플랫폼: {platform}
-        유료 여부: {is_paid}
-        가격: {price}
-        난이도: {difficulty_level}
+            full_text = f"""course_id: {course_id}
+        title: {course_title}
+        teacher: {teacher}
+        description: {description}
+        subject: {subject}
+        grade: {grade}
+        platform: {platform}
+        is_paid: {is_paid}
+        price: {price}
+        difficulty_level: {difficulty_level}
 
-        포함된 강의:
+        lectures_list:
         {lectures_combined}
         """
             texts.append(full_text)
