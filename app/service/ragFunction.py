@@ -4,6 +4,7 @@ import os
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from dotenv import load_dotenv
+from app.utils.s3_utils import read_all_csv_from_s3
 
 load_dotenv()
 
@@ -13,9 +14,19 @@ def create_vector_db():
         if os.path.exists(db_dir):
             shutil.rmtree(db_dir)
             
-        courses_df = pd.read_csv('courses.csv')
-        lectures_df = pd.read_csv('lectures.csv')
-
+        csv_files = read_all_csv_from_s3()
+        courses_dfs = []
+        lectures_dfs = []
+        
+        for file_name, file_content in csv_files:
+            if "courses" in file_name:
+                courses_dfs.append(file_content)
+            elif "lectures" in file_name:
+                lectures_dfs.append(file_content)  
+            
+        courses_df = pd.concat(courses_dfs, ignore_index=True)
+        lectures_df = pd.concat(lectures_dfs, ignore_index=True)
+        
         texts = []
 
         for idx, course_row in courses_df.iterrows():
@@ -28,8 +39,9 @@ def create_vector_db():
             platform = course_row['platform']
             is_paid = course_row['is_paid']
             price = course_row['price']
-            difficulty_level = course_row['difficulty_level']
-
+            difficulty_level = course_row['dificulty_level']
+            url = course_row['url']
+            
             # 해당 코스의 모든 강의 추출
             related_lectures = lectures_df[lectures_df['course_id'] == course_id]
 
@@ -51,6 +63,7 @@ def create_vector_db():
         is_paid: {is_paid}
         price: {price}
         difficulty_level: {difficulty_level}
+        url: {url}
 
         lectures_list:
         {lectures_combined}

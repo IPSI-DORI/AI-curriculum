@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from app.utils.s3_utils import upload_to_s3
 import pandas as pd
 import shutil
 import os
@@ -129,6 +130,7 @@ def scrape_course(driver, course_id):
 
     course_data = {"course_id": course_id}
 
+    course_data["url"] = base_url
     driver.get(base_url)
     try:
         WebDriverWait(driver, 20).until(
@@ -311,6 +313,7 @@ def crawling_ebs():
                 "is_paid": data.get("is_paid", False),
                 "price": data.get("price", 0),
                 "dificulty_level": data.get("dificulty_level", ""),
+                "url": data.get("url", ""),
             }
             all_courses.append(course_meta)
 
@@ -333,8 +336,11 @@ def crawling_ebs():
         lectures_df = pd.DataFrame(all_lectures)
 
         # CSV 저장
-        courses_df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
-        lectures_df.to_csv("lectures.csv", index=False, encoding="utf-8-sig")
+        # courses_df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
+        # lectures_df.to_csv("lectures.csv", index=False, encoding="utf-8-sig")
+        
+        upload_to_s3(courses_df, "courses.csv")
+        upload_to_s3(lectures_df, "lectures.csv")
 
         return("✅ CSV 파일 저장 완료: courses.csv / lectures.csv")
     except Exception as e:

@@ -28,6 +28,12 @@ async def crawling_ebs():
     result = crawling_ebs()
     return result
 
+@app.post("/api/ai/crawling/mega")
+async def crawling_mega():
+    from app.service.megastudy_carriculum import crawling_mega
+    result = crawling_mega()
+    return result
+
 @app.get("/api/ai/curriculum")
 async def get_curriculum(user_question: str):
     result = create_curriculum(user_question)
