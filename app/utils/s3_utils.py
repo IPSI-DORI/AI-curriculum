@@ -21,7 +21,8 @@ def upload_to_s3(file: pd.DataFrame ,file_name):
     )
 
     with tempfile.NamedTemporaryFile(mode='w+', suffix=".csv", delete=False) as tmp:
-            file.to_csv(tmp.name, index=False)
+            file.to_csv(tmp.name, index=False, encoding="utf-8-sig")  # 파일을 임시로 저장
+            tmp.seek(0) 
             tmp.flush()
             
     input_file_name = tmp.name  # 업로드할 파일 이름
