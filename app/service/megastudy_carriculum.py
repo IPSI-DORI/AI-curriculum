@@ -167,6 +167,22 @@ def crawling_mega():
             "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56351&MAKE_FLG=1&tec_cd=megalara",
             "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55807&MAKE_FLG=1&tec_cd=megalara",
             "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=51722&MAKE_FLG=1&tec_cd=secondsense",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=53566&MAKE_FLG=1&tec_cd=jumpjive",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55684&MAKE_FLG=1&tec_cd=rimbaud666",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55282&MAKE_FLG=1&tec_cd=rimbaud666",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56500&MAKE_FLG=1&tec_cd=kichery",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56247&MAKE_FLG=1&tec_cd=kichery",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55602&MAKE_FLG=1&tec_cd=kichery",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56029&MAKE_FLG=1&tec_cd=megakkh",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55626&MAKE_FLG=1&tec_cd=megakkh",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=53479&MAKE_FLG=1&tec_cd=megakkh",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=51711&MAKE_FLG=1&tec_cd=megakkh",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=46358&MAKE_FLG=1&tec_cd=megakkh",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56582&MAKE_FLG=2&tec_cd=kwakdongr"
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56492&MAKE_FLG=1&tec_cd=kwakdongr",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55594&MAKE_FLG=1&tec_cd=kwakdongr",
+            "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55593&MAKE_FLG=1&tec_cd=kwakdongr"
+            
             
             # 한국지리
             "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55628&MAKE_FLG=1&tec_cd=lksbutt",
