@@ -12,27 +12,57 @@ load_dotenv()
 
 def create_curriculum(get_user_question: str):
     embeddings = OpenAIEmbeddings()
-    db = Chroma(embedding_function=embeddings, persist_directory="./chroma_db")
+    persist_dir = os.path.abspath("./chroma_db")
+    db = Chroma(
+    embedding_function=embeddings,
+    persist_directory=persist_dir,
+    collection_name="esg"  # 이거 빠졌으면 절대 못 찾음
+    )
 
+    db.persist()
     llm = ChatOpenAI(model="gpt-4o-mini")
     prompt = ChatPromptTemplate.from_template(
         """
-            너는 강의를 추천해주는 교육 전문가야.  
-            아래 괄호 안의 정보를 바탕으로, 조건에 맞는 강의만 추천해줘.  
-            반드시 **사용자가 원하는 과목에 해당하고**, **사용자의 학년에 맞으며**, **3개 이하로만 추천**해줘.  
-            정보와 관련 없는 강의는 절대 포함하지 마.  
-            추천 강의는 JSON 형식으로 주고, 아래 항목을 반드시 포함해줘:
-            course_id, title, description, subject, teacher, grade, platform, is_paid, price, recommend, lectures_list
+        당신은 AI 커리큘럼 생성 전문가입니다. 주어진 정보와 질문을 바탕으로 최적의 커리큘럼을 생성해 주세요.  
+        **반드시 조건에 맞는 강의만 3개만 추천해 주세요. 3개보다 많거나 적으면 안 됩니다.**
+        그리고 **각 강의에 포함된 전체 강의 목록(lectures_list)을 빠짐없이 포함**해주세요.
 
-            <사용자 정보>  
-            %s  ← 이 자리에 네 기존 포맷으로 채워진 사용자 입력이 들어감
+        답변은 반드시 아래와 같은 JSON 형식으로 작성해 주세요.  
+        설명은 description 기반으로 요약해주시고, recommend는 추천 이유를 간단하게 써 주세요.
 
-            <참고 정보>
-            {context}
+        예시)
+        {{
+            "lectures": [
+                {{
+                    "course_id": "course_1",
+                    "title": "제목",
+                    "description": "설명",
+                    "subject": "과목",
+                    "grade": "학년",
+                    "teacher": "강사명",
+                    "platform": "플랫폼명",
+                    "is_paid": true,
+                    "price": 10000,
+                    "recommend": "추천 이유",
+                    "url": "https://example.com/course_1",
+                    "lectures_list": [
+                        {{
+                            "title": "구지가/공무도하가/황조가",
+                            "info": "강의시간 10:22"
+                        }},
+                        ...
+                    ]
+                }},
+                ...
+            ]
+        }}
 
-            <질문>
-            {question}
-            """
+        <참고 정보>
+        {context}
+
+        <질문>
+        {question}
+        """
     )
 
     user_question = get_user_question
@@ -42,6 +72,13 @@ def create_curriculum(get_user_question: str):
     formatted_prompt = prompt.format_messages(
         context=context_text, question=user_question
     )
+    
+    print("검색된 문서 개수:", len(retrieved_docs))
+    for doc in retrieved_docs:
+        print("문서 내용:", doc.page_content[:200])  # 일부만 출력
+
+
+    print("Formatted Prompt:", formatted_prompt[0].content)  # 디버깅용 출력
 
     response = llm.invoke(formatted_prompt).content
 
@@ -54,5 +91,5 @@ def create_curriculum(get_user_question: str):
     try:
         result = json.loads(clean_response)
     except json.JSONDecodeError:
-        create_curriculum(get_user_question)
+        return create_curriculum(get_user_question)
     return result

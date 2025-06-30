@@ -74,11 +74,13 @@ def create_vector_db():
         db = Chroma.from_texts(
             texts=texts,
             embedding=embeddings,
-            persist_directory="./chroma_db"
+            persist_directory="./chroma_db",
+            collection_name="esg",
+            metadatas=[{"source": "esg"}] * len(texts)
         )
 
         db.persist()
-        print("completed")
+        print("총 벡터 수:", len(texts))
         return "Vector DB created successfully"
     except Exception as e:
         return f"Error occurred: {str(e)}"
