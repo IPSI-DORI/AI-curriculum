@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.service.ragFunction2 import create_curriculum
+from service.ragFunction2 import create_curriculum
 
 app = FastAPI()
 
