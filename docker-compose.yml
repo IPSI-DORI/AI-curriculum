@@ -3,15 +3,17 @@ services:
   app:
     build: .
     container_name: fastapi_app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
     expose:
       - "8000"
     volumes:
       - ./app/api:/main
+    working_dir: /main
     env_file:
       - ./.env
     environment:
       - PYTHONUNBUFFERED=1
-  
+
   nginx:
     image: nginx:latest
     container_name: nginx_proxy
