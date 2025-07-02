@@ -17,12 +17,15 @@ RUN curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor
     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list && \
     apt-get update && apt-get install -y google-chrome-stable
 
-# 3. ChromeDriver 수동 설치 (※ 버전 고정: 크롬 114용 예시)
-ENV CHROMEDRIVER_VERSION=114.0.5735.90
-RUN curl -Lo /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" && \
+# 3. 정확히 맞는 ChromeDriver (138.0.7204.92) 수동 설치
+ENV CHROMEDRIVER_VERSION=138.0.7204.92
+
+RUN curl -Lo /tmp/chromedriver.zip "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${CHROMEDRIVER_VERSION}/linux64/chromedriver-linux64.zip" && \
     unzip /tmp/chromedriver.zip -d /usr/bin/ && \
+    mv /usr/bin/chromedriver-linux64/chromedriver /usr/bin/chromedriver && \
     chmod +x /usr/bin/chromedriver && \
-    rm /tmp/chromedriver.zip
+    rm -rf /tmp/chromedriver.zip /usr/bin/chromedriver-linux64
+
 
 # 4. 파이썬 의존성 설치
 COPY requirements.txt .
