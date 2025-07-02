@@ -10,15 +10,22 @@ import os
 import time
 import json
 
+from selenium import webdriver
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 
 def create_driver():
-    options = webdriver.ChromeOptions()
-    options.add_argument("--headless")  # 창 띄우기 싫으면 주석 해제
+    options = Options()
+    options.add_argument("--headless")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Chrome(options=options)
-    return driver
 
+    service = Service(executable_path="/usr/bin/chromedriver")
+
+    driver = webdriver.Chrome(service=service, options=options)
+    return driver
 
 def get_intro(driver):
     intro_data = {}
@@ -194,7 +201,7 @@ def crawling_ebs():
         if os.path.exists(lectures_dir):
             shutil.rmtree(lectures_dir)
         
-        with open("ebs_urls.json", encoding="utf-8") as f:
+        with open("/main/ebs_urls.json", encoding="utf-8") as f:
             courses_items = json.load(f)
         
         course_ids = [item["course_id"] for item in courses_items]
