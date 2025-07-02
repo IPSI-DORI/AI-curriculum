@@ -49,10 +49,10 @@ def create_curriculum(get_user_question: str):
     import re
 
     # 코드블록 제거 (json, python, 기타 코드블록 모두 제거)
-    clean_response = response.strip("```json\n").strip("```")
+    # clean_response = response.strip("```json\n").strip("```")
 
     try:
-        result = json.loads(clean_response)
+        result = response
     except json.JSONDecodeError:
         create_curriculum(get_user_question)
     return result
