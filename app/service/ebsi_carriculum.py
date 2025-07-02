@@ -12,12 +12,19 @@ import json
 
 from selenium import webdriver
 
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+
 def create_driver():
-    options = webdriver.ChromeOptions()
+    options = Options()
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Chrome(options=options)
+
+    service = Service(executable_path="/usr/bin/chromedriver")
+
+    driver = webdriver.Chrome(service=service, options=options)
     return driver
 
 def get_intro(driver):
