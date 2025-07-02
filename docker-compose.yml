@@ -7,6 +7,10 @@ services:
     working_dir: /app
     expose:
       - "8000"
+    env_file:
+      - .env
+    environment:
+      - PYTHONPATH=/app
 
 
   nginx:
