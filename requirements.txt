@@ -8,3 +8,4 @@ langchain_community
 langchain
 chromadb
 boto3
+selenium
