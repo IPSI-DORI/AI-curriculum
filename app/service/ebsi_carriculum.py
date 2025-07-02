@@ -10,15 +10,15 @@ import os
 import time
 import json
 
+from selenium import webdriver
 
 def create_driver():
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")  # 창 띄우기 싫으면 주석 해제
+    options.add_argument("--headless")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     driver = webdriver.Chrome(options=options)
     return driver
-
 
 def get_intro(driver):
     intro_data = {}
