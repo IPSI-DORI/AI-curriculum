@@ -127,7 +127,7 @@ def crawling_mega():
         courses_name = "courses_mega.csv"
         lectures_name = "lectures_mega.csv"
         
-        with open("mega_urls.json", encoding="utf-8") as f:
+        with open("/main/mega_urls.json", encoding="utf-8") as f:
             url_items = json.load(f)
         
         urls = [item["url"] for item in url_items]

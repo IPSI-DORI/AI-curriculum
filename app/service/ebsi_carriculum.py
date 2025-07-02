@@ -194,7 +194,7 @@ def crawling_ebs():
         if os.path.exists(lectures_dir):
             shutil.rmtree(lectures_dir)
         
-        with open("ebs_urls.json", encoding="utf-8") as f:
+        with open("/main/ebs_urls.json", encoding="utf-8") as f:
             courses_items = json.load(f)
         
         course_ids = [item["course_id"] for item in courses_items]

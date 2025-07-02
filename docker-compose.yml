@@ -3,7 +3,9 @@ services:
     build: .
     command: uvicorn app.api.main:app --host 0.0.0.0 --port 8000 --reload
     volumes:
-      - ./app:/main/app
+     - ./mega_urls.json:/main/mega_urls.json
+     - ./mega_urls.json:/main/ebs_urls.json
+     - ./app:/main/app
     working_dir: /main/app
     expose:
       - "8000"
