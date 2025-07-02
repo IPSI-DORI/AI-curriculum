@@ -54,38 +54,49 @@
 
     {"subject": "한국지리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55628&MAKE_FLG=1&tec_cd=lksbutt"},
     {"subject": "한국지리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55866&MAKE_FLG=1&tec_cd=lksbutt"},
+    {"subject": "한국지리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55677&MAKE_FLG=1&tec_cd=ringmj"},
 
     {"subject": "세계지리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55629&MAKE_FLG=1&tec_cd=lksbutt"},
     {"subject": "세계지리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55868&MAKE_FLG=1&tec_cd=lksbutt"},
+    {"subject": "세계지리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55678&MAKE_FLG=1&tec_cd=ringmj"},
 
     {"subject": "동아시아사", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55710&MAKE_FLG=1&tec_cd=mp1204"},
     {"subject": "동아시아사", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=53588&MAKE_FLG=1&tec_cd=hellohw2"},
+    {"subject": "동아시아사", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56092&MAKE_FLG=1&tec_cd=mp1204"},
 
     {"subject": "세계사", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55711&MAKE_FLG=1&tec_cd=mp1204"},
     {"subject": "세계사", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55966&MAKE_FLG=1&tec_cd=hellohw2"},
+    {"subject": "세계사", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56094&MAKE_FLG=1&tec_cd=mp1204"},
 
     {"subject": "생활과 윤리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55640&MAKE_FLG=1&tec_cd=jjong3307"},
     {"subject": "생활과 윤리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55679&MAKE_FLG=1&tec_cd=djwnsrb"},
+    {"subject": "생활과 윤리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56110&MAKE_FLG=1&tec_cd=djwnsrb"},
 
     {"subject": "윤리와 사상", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55641&MAKE_FLG=1&tec_cd=jjong3307"},
     {"subject": "윤리와 사상", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55680&MAKE_FLG=1&tec_cd=djwnsrb"},
+    {"subject": "윤리와 사상", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55979&MAKE_FLG=1&tec_cd=jjong3307"},
 
     {"subject": "사회문화", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55612&MAKE_FLG=1&tec_cd=kasuwon2"},
     {"subject": "사회문화", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55614&MAKE_FLG=1&tec_cd=deathology"},
+    {"subject": "사회문화", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=54618&MAKE_FLG=1&tec_cd=deathology"},
 
     {"subject": "정치와 법", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55613&MAKE_FLG=1&tec_cd=deathology"},
+    {"subject": "정치와 법", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55774&MAKE_FLG=1&tec_cd=hnp42w"},
     {"subject": "정치와 법", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55774&MAKE_FLG=1&tec_cd=hnp42w"},
 
     {"subject": "경제", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55676&MAKE_FLG=1&tec_cd=smartwyh"},
 
     {"subject": "물리학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55609&MAKE_FLG=1&tec_cd=vudda77"},
     {"subject": "물리학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55610&MAKE_FLG=1&tec_cd=vudda77"},
+    {"subject": "물리학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55603&MAKE_FLG=1&tec_cd=goodwill96"},
 
     {"subject": "화학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55973&MAKE_FLG=1&tec_cd=woomaria"},
     {"subject": "화학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55714&MAKE_FLG=1&tec_cd=wjddnwjd81"},
+    {"subject": "화학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55973&MAKE_FLG=1&tec_cd=woomaria"},
 
     {"subject": "화학2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49328&MAKE_FLG=1&tec_cd=kodori15th"},
     {"subject": "화학2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49376&MAKE_FLG=1&tec_cd=wjddnwjd81"},
+    {"subject": "화학2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49383&MAKE_FLG=1&tec_cd=jjungu76"},
 
     {"subject": "생명과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55607&MAKE_FLG=1&tec_cd=gkswhdcjf"},
     {"subject": "생명과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49278&MAKE_FLG=1&tec_cd=gkswhdcjf"},
@@ -93,7 +104,9 @@
 
     {"subject": "지구과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55605&MAKE_FLG=1&tec_cd=cs6425"},
     {"subject": "지구과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55699&MAKE_FLG=1&tec_cd=ozscience"},
+    {"subject": "지구과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56983&MAKE_FLG=2&tec_cd=wkdtjdrb"},
 
     {"subject": "지구과학2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49414&MAKE_FLG=1&tec_cd=ozscience"},
-    {"subject": "지구과학2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49325&MAKE_FLG=1&tec_cd=ozscience"}
+    {"subject": "지구과학2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49325&MAKE_FLG=1&tec_cd=ozscience"},
+    
 ]

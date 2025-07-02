@@ -113,6 +113,12 @@
     {"subject": "수학-미적분", "course_id": "S20210001127"},
     {"subject": "수학-미적분", "course_id": "S20210001351"},
     {"subject": "수학-미적분", "course_id": "S20220000787"},
+
+    {"subject": "기하", "course_id": "S20250000307"},
+    {"subject": "기하", "course_id": "S20250000308"},
+    {"subject": "기하", "course_id": "S20250000374"},
+    {"subject": "기하", "course_id": "S20210001354"},
+
     
     {"subject": "영어", "course_id": "S20180000472"},
     {"subject": "영어", "course_id": "S20150000380"},
@@ -154,13 +160,28 @@
 
     {"subject": "한국지리", "course_id": "S20240000933"},
     {"subject": "한국지리", "course_id": "S20250000050"},
+    {"subject": "한국지리", "course_id": "S20250000317"},
+    {"subject": "한국지리", "course_id": "S20250000197"},
+    {"subject": "한국지리", "course_id": "S20240000466"},
 
     {"subject": "동아시아사", "course_id": "S20240000938"},
     {"subject": "동아시아사", "course_id": "S20250000043"},
+    {"subject": "동아시아사", "course_id": "S20250000321"},
+    {"subject": "동아시아사", "course_id": "S20250000322"},
+    {"subject": "동아시아사", "course_id": "S20240000121"},
 
     {"subject": "세계사", "course_id": "S20250000046"},
+    {"subject": "세계사", "course_id": "S20240000940"},
+    {"subject": "세계사", "course_id": "S20240000941"},
+    {"subject": "세계사", "course_id": "S20240000053"},
+    {"subject": "세계사", "course_id": "S20230000734"},
+    {"subject": "세계사", "course_id": "S20220000539"},
 
     {"subject": "세계지리", "course_id": "S20250000047"},
+    {"subject": "세계지리", "course_id": "S20250000320"},
+    {"subject": "세계지리", "course_id": "S20250000319"},
+    {"subject": "세계지리", "course_id": "S20240000468"},
+    {"subject": "세계지리", "course_id": "S20240000327"},
 
     {"subject": "통합사회1", "course_id": "S20180000190"},
     {"subject": "통합사회1", "course_id": "S20180000191"},
@@ -182,8 +203,14 @@
 
     {"subject": "화학1", "course_id": "S20240000953"},
     {"subject": "화학1", "course_id": "S20250000057"},
+    {"subject": "화학1", "course_id": "S20250000335"},
+    {"subject": "화학1", "course_id": "S20250000057"},
+    {"subject": "화학1", "course_id": "S20240000955"},
 
     {"subject": "화학2", "course_id": "S20250000058"},
+    {"subject": "화학2", "course_id": "S20250000338"},
+    {"subject": "화학2", "course_id": "S20250000058"},
+    {"subject": "화학2", "course_id": "S20240000957"},
 
     {"subject": "지구과학1", "course_id": "S20240000965"},
     {"subject": "지구과학1", "course_id": "S20240000859"},
@@ -191,8 +218,17 @@
     {"subject": "지구과학1", "course_id": "S20240000963"},
 
     {"subject": "지구과학2", "course_id": "S20250000056"},
+    {"subject": "지구과학2", "course_id": "S20250000348"},
+    {"subject": "지구과학2", "course_id": "S20250000349"},
+    {"subject": "지구과학2", "course_id": "S20240000078"},
 
     {"subject": "물리1", "course_id": "S20250000051"},
+    {"subject": "물리1", "course_id": "S20250000330"},
+    {"subject": "물리1", "course_id": "S20250000331"},
+    {"subject": "물리1", "course_id": "S20250000051"},
 
-    {"subject": "물리2", "course_id": "S20250000052"}
+    {"subject": "물리2", "course_id": "S20250000052"},
+    {"subject": "물리2", "course_id": "S20250000334"},
+    {"subject": "물리2", "course_id": "S20250000052"},
+    {"subject": "물리2", "course_id": "S20240000951"}
 ]
