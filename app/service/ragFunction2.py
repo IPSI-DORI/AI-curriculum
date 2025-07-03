@@ -32,9 +32,9 @@ def create_curriculum(get_user_question: str):
         - **코드블럭 없이, 순수 JSON**만 출력하세요.
 
         예시 형식:
-        {
+        {{
         "lectures": [
-            {
+            {{
             "course_id": "...",
             "title": "...",
             "description": "...",
@@ -47,13 +47,13 @@ def create_curriculum(get_user_question: str):
             "recommend": "...",
             "url": "...",
             "lectures_list": [
-                { "title": "...", "info": "..." },
+                {{ "title": "...", "info": "..." }},
                 ...
             ]
-            },
+            }},
             ...
         ]
-        }
+        }}
 
         <참고 정보>
         {context}
