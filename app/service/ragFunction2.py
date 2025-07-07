@@ -9,7 +9,7 @@ from langchain_community.vectorstores import Chroma
 
 load_dotenv()
 
-def create_curriculum(get_user_question: str):
+def create_curriculum(get_user_question: str, retry: int = 0):
     embeddings = OpenAIEmbeddings()
     if "ebsi" in get_user_question:
         collection_tmp = "ebsi"
@@ -105,5 +105,8 @@ def create_curriculum(get_user_question: str):
     try:
         result = json.loads(clean_response)
     except json.JSONDecodeError:
+        if retry >= 2:
+            print("JSON 파싱 실패:", clean_response)
+            return {"error": "JSON 파싱 실패. 입력을 확인해주세요."}
         return create_curriculum(get_user_question)
     return result
