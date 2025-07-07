@@ -38,7 +38,7 @@ def create_curriculum(get_user_question: str):
         답변은 반드시 아래와 같은 JSON 형식으로 작성해 주세요.  
         설명은 description 기반으로 요약해주시고, recommend는 추천 이유를 간단하게 써 주세요.
 
-        예시)
+        예시 형식:
         {{
             "lectures": [
                 {{
@@ -71,6 +71,7 @@ def create_curriculum(get_user_question: str):
 
         <질문>
         {question}
+
         """
     )
 
@@ -89,21 +90,16 @@ def create_curriculum(get_user_question: str):
     
     print("검색된 문서 개수:", len(retrieved_docs))
     for doc in retrieved_docs:
-        print("문서 내용:", doc.page_content[:200])  # 일부만 출력
+        print("문서 내용:", doc.page_content[:200])
 
 
-    print("Formatted Prompt:", formatted_prompt[0].content)  # 디버깅용 출력
+    print("Formatted Prompt:", formatted_prompt[0].content)
 
-    response = llm.invoke(formatted_prompt).content
-
-    # 코드블록 제거
-    import re
-
-    # 코드블록 제거 (json, python, 기타 코드블록 모두 제거)
-    clean_response = response.strip("```json\n").strip("```")
+    response = llm.invoke(formatted_prompt).content.strip()
 
     try:
-        result = json.loads(clean_response)
+        result = json.loads(response)
+        return result
     except json.JSONDecodeError:
         return create_curriculum(get_user_question)
     return result
