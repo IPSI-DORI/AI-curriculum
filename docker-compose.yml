@@ -6,7 +6,7 @@ services:
      - ./mega_urls.json:/main/mega_urls.json
      - ./mega_urls.json:/main/ebs_urls.json
      - ./:/main
-    working_dir: /main/app
+    working_dir: /main
     expose:
       - "8000"
     env_file:
