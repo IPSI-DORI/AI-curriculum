@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-WORKDIR /app
+WORKDIR /main
 
 # 1. 시스템 필수 패키지 설치
 RUN apt-get update && apt-get install -y \
