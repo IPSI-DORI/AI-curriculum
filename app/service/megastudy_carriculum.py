@@ -10,20 +10,14 @@ import time
 import json
 from app.utils.s3_utils import upload_to_s3
 
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-
 def create_driver():
-    options = Options()
+    options = webdriver.ChromeOptions()
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
-
-    service = Service(executable_path="/usr/bin/chromedriver")
-
-    driver = webdriver.Chrome(service=service, options=options)
+    driver = webdriver.Chrome(options=options)
     return driver
+
 
 def scrape_megastudy_course(driver, url):
     data = {
@@ -133,7 +127,7 @@ def crawling_mega():
         courses_name = "courses_mega.csv"
         lectures_name = "lectures_mega.csv"
         
-        with open("/main/mega_urls.json", encoding="utf-8") as f:
+        with open("mega_urls.json", encoding="utf-8") as f:
             url_items = json.load(f)
         
         urls = [item["url"] for item in url_items]

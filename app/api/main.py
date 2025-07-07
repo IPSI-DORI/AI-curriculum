@@ -11,15 +11,15 @@ def root():
 
 # 백터 데이터베이스 생성
 @app.post("/api/ai/create_vector_db")
-async def create_vector_db():
+async def create_vector_db(platform: str):
     from app.service.ragFunction import create_vector_db
-    result = create_vector_db()
+    result = create_vector_db(platform)
     return result
 
 @app.delete("/api/ai/delete_vector_db")
-async def delete_vector_db():
+async def delete_vector_db(platform: str):
     from app.service.ragFunction import delete_vector_db
-    result = delete_vector_db()
+    result = delete_vector_db(platform)
     return result
 
 @app.post("/api/ai/crawling/ebs")
@@ -38,6 +38,7 @@ async def crawling_mega():
 async def get_curriculum(user_question: str):
     result = create_curriculum(user_question)
     return result
+
 
 @app.get("/api/ai/test")
 async def test():
