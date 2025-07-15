@@ -113,11 +113,10 @@
     {"subject": "수학-미적분", "course_id": "S20210001127"},
     {"subject": "수학-미적분", "course_id": "S20210001351"},
     {"subject": "수학-미적분", "course_id": "S20220000787"},
-
-    {"subject": "기하", "course_id": "S20250000307"},
-    {"subject": "기하", "course_id": "S20250000308"},
-    {"subject": "기하", "course_id": "S20250000374"},
-    {"subject": "기하", "course_id": "S20210001354"},
+    {"subject": "수학-기하", "course_id": "S20250000307"},
+    {"subject": "수학-기하", "course_id": "S20250000308"},
+    {"subject": "수학-기하", "course_id": "S20250000374"},
+    {"subject": "수학-기하", "course_id": "S20210001354"},
 
     
     {"subject": "영어", "course_id": "S20180000472"},
@@ -153,10 +152,16 @@
 
     {"subject": "생활과 윤리", "course_id": "S20240000928"},
     {"subject": "생활과 윤리", "course_id": "S20250000045"},
+    {"subject": "생활과 윤리", "course_id": "S20250000313"},
+    {"subject": "생활과 윤리", "course_id": "S20240000489"},
+    {"subject": "생활과 윤리", "course_id": "S20240000853"},
+    {"subject": "생활과 윤리", "course_id": "S20240000793"},
 
     {"subject": "윤리와 사상", "course_id": "S20240000931"},
     {"subject": "윤리와 사상", "course_id": "S20240000929"},
     {"subject": "윤리와 사상", "course_id": "S20250000048"},
+    {"subject": "윤리와 사상", "course_id": "S20240000381"},
+    {"subject": "윤리와 사상", "course_id": "S20240000743"},
 
     {"subject": "한국지리", "course_id": "S20240000933"},
     {"subject": "한국지리", "course_id": "S20250000050"},
@@ -193,6 +198,9 @@
     {"subject": "사회문화", "course_id": "S20240000794"},
     {"subject": "사회문화", "course_id": "S20240000945"},
     {"subject": "사회문화", "course_id": "S20250000044"},
+    {"subject": "사회문화", "course_id": "S20240000322"},
+    {"subject": "사회문화", "course_id": "S20240000321"},
+    {"subject": "사회문화", "course_id": "S20240000794"},
 
     {"subject": "생명과학1", "course_id": "S20240000958"},
     {"subject": "생명과학1", "course_id": "S20250000053"},
@@ -200,6 +208,13 @@
     {"subject": "생명과학1", "course_id": "S20240000959"},
 
     {"subject": "생명과학2", "course_id": "S20250000054"},
+    {"subject": "생명과학2", "course_id": "S20250000343"},
+    {"subject": "생명과학2", "course_id": "S20240000350"},
+    {"subject": "생명과학2", "course_id": "S20240000349"},
+    {"subject": "생명과학2", "course_id": "S20250000344"},
+    {"subject": "생명과학2", "course_id": "S20230000633"},
+    {"subject": "생명과학2", "course_id": "S20230000245"},
+    {"subject": "생명과학2", "course_id": "S20240000479"},
 
     {"subject": "화학1", "course_id": "S20240000953"},
     {"subject": "화학1", "course_id": "S20250000057"},

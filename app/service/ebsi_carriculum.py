@@ -183,74 +183,72 @@ def scrape_course(driver, course_id):
 
     return course_data
 
-
 def crawling_ebs():
     try:
-        courses_dir = "../../ebsi_courses.csv"
-        lectures_dir = "../../ebsi_lectures.csv"
-
-        if os.path.exists(courses_dir):
-            shutil.rmtree(courses_dir)
-        if os.path.exists(lectures_dir):
-            shutil.rmtree(lectures_dir)
-        
         with open("ebs_urls.json", encoding="utf-8") as f:
             courses_items = json.load(f)
-        
-        course_ids = [item["course_id"] for item in courses_items]
 
         driver = create_driver()
 
-        all_courses = []  # 전체 course 메타 데이터 모을 리스트
-        all_lectures = []  # 전체 강의 데이터 모을 리스트
+        # 대과목별 데이터 저장
+        subject_course_map = {}
+        subject_lecture_map = {}
 
-        for course_id in course_ids:
-            if course_id == "S20240000859":
-                print("skip S20240000859")
+        for item in courses_items:
+            course_id = item["course_id"]
+            subject_full = item["subject"]
+
+            # 대과목 추출 (예: "국어-문학" → "국어")
+            major_subject = subject_full.split("-")[0]
+
+            # 크롤링
             data = scrape_course(driver, course_id)
 
-            # course 메타 데이터
+            # course 데이터
             course_meta = {
-                "course_id": data["course_id"],
+                "course_id": course_id,
                 "title": data.get("title", ""),
                 "teacher": data.get("teacher", ""),
-                "subject": data.get("subject", ""),
+                "subject": subject_full,
                 "description": data.get("description", ""),
                 "reviews": data.get("reviews", 0),
                 "grade": data.get("grade", ""),
                 "platform": data.get("platform", ""),
                 "is_paid": data.get("is_paid", False),
                 "price": data.get("price", 0),
-                "dificulty_level": data.get("dificulty_level", ""),
-                "url": data.get("url", ""),
+                "difficulty_level": data.get("dificulty_level", ""),
+                "url": data.get("url", "")
             }
-            all_courses.append(course_meta)
+            subject_course_map.setdefault(major_subject, []).append(course_meta)
 
-            # lectures 데이터
+            # lecture 데이터
             lectures = data.get("lectures", [])
             for lecture in lectures:
                 lecture_entry = {
-                    "course_id": data["course_id"],  # 어떤 course에 속하는지 알기 위해
+                    "course_id": course_id,
                     "title": lecture.get("title", ""),
-                    "info": lecture.get("info", ""),
+                    "info": lecture.get("info", "")
                 }
-                all_lectures.append(lecture_entry)
+                subject_lecture_map.setdefault(major_subject, []).append(lecture_entry)
 
-            print(f"[완료] {course_id}")
+            print(f"[완료] {course_id} ({subject_full})")
 
         driver.quit()
 
-        # 각각 DataFrame 만들기
-        courses_df = pd.DataFrame(all_courses)
-        lectures_df = pd.DataFrame(all_lectures)
+        # 과목별 CSV 저장 및 S3 업로드
+        for subject, course_list in subject_course_map.items():
+            courses_df = pd.DataFrame(course_list)
+            lectures_df = pd.DataFrame(subject_lecture_map.get(subject, []))
 
-        # CSV 저장
-        # courses_df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
-        # lectures_df.to_csv("lectures.csv", index=False, encoding="utf-8-sig")
-        
-        upload_to_s3(courses_df, "courses.csv")
-        upload_to_s3(lectures_df, "lectures.csv")
+            courses_filename = f"{subject}_courses.csv"
+            lectures_filename = f"{subject}_lectures.csv"
 
-        return("✅ CSV 파일 저장 완료: courses.csv / lectures.csv")
+            # S3 업로드만 수행
+            upload_to_s3(courses_df, courses_filename)
+            upload_to_s3(lectures_df, lectures_filename)
+
+            print(f"✅ S3 업로드 완료: {subject}")
+
+        return "🎉 모든 과목별 S3 업로드 완료"
     except Exception as e:
-        return f"Error occurred: {str(e)}"
+        return f"❌ Error occurred: {str(e)}"

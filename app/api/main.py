@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from app.service.ragFunction2 import create_curriculum
+from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
@@ -12,8 +13,8 @@ def root():
 # 백터 데이터베이스 생성
 @app.post("/api/ai/create_vector_db")
 async def create_vector_db(platform: str):
-    from app.service.ragFunction import create_vector_db
-    result = create_vector_db(platform)
+    from app.service.ragFunction import create_all_subject_vector_db
+    result = create_all_subject_vector_db(platform)
     return result
 
 @app.delete("/api/ai/delete_vector_db")
@@ -37,7 +38,7 @@ async def crawling_mega():
 @app.get("/api/ai/curriculum")
 async def get_curriculum(user_question: str):
     result = create_curriculum(user_question)
-    return result
+    return JSONResponse(result)
 
 
 @app.get("/api/ai/test")
