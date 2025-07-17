@@ -9,6 +9,13 @@
     {"subject": "국어", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55713&MAKE_FLG=1&tec_cd=megabori"},
     {"subject": "국어", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55756&MAKE_FLG=1&tec_cd=kehsck1"},
     {"subject": "국어", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55055&MAKE_FLG=1&tec_cd=giftedkor"},
+    {"subject": "국어", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=54519"},
+    {"subject": "국어", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/naesin_detailview.asp?CHR_CD=45772"},
+    {"subject": "국어", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/naesin_detailview.asp?CHR_CD=49530"},
+    {"subject": "국어", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=48754"},
+    {"subject": "국어", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55650"},
+    {"subject": "국어", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=57225"},
+    
 
     {"subject": "수학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55570&MAKE_FLG=1&tec_cd=woojinmath"},
     {"subject": "수학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55571&MAKE_FLG=1&tec_cd=woojinmath"},
@@ -22,6 +29,13 @@
     {"subject": "수학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=51810&MAKE_FLG=1&tec_cd=kihyun6"},
     {"subject": "수학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=47465&MAKE_FLG=1&tec_cd=megakse"},
     {"subject": "수학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=54613&MAKE_FLG=1&tec_cd=woojinmath"},
+    {"subject": "수학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=46956"},
+    {"subject": "수학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=41381"},
+    {"subject": "수학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=43465"},
+    {"subject": "수학", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/naesin_detailview.asp?CHR_CD=52131"},
+    {"subject": "수학", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/naesin_detailview.asp?CHR_CD=52033"},
+    {"subject": "수학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55642"},
+    {"subject": "수학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=53526"},
 
     {"subject": "영어", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56146&MAKE_FLG=2&tec_cd=sayyeah97"},
     {"subject": "영어", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56506&MAKE_FLG=2&tec_cd=goodwill96"},
@@ -52,10 +66,31 @@
     {"subject": "영어", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55594&MAKE_FLG=1&tec_cd=kwakdongr"},
     {"subject": "영어", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55593&MAKE_FLG=1&tec_cd=kwakdongr"},
 
+
+    {"subject": "통합사회1", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=56398"},
+    {"subject": "통합사회1", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=54516"},
+    {"subject": "통합사회1", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=56600"},
+    {"subject": "통합사회1", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=54564"},
+    {"subject": "통합사회1", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=56125"},
+
+    {"subject": "통합사회2", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=56098"},
+    {"subject": "통합사회2", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=56546"},
+    {"subject": "통합사회2", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=56547"},
+    {"subject": "통합사회2", "url": "https://www.megastudy.net/teacher_v2/chr/lecture_view_package.asp?PKG_CD=190264&tec_cd=hellohw2&LeftMenuCd=2"},
+
     {"subject": "한국지리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55628&MAKE_FLG=1&tec_cd=lksbutt"},
     {"subject": "한국지리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55866&MAKE_FLG=1&tec_cd=lksbutt"},
     {"subject": "한국지리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55677&MAKE_FLG=1&tec_cd=ringmj"},
     {"subject": "한국지리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=57128"},
+
+    {"subject": "한국사", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/naesin_detailview.asp?CHR_CD=46591"},
+    {"subject": "한국사", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/naesin_detailview.asp?CHR_CD=51536"},
+    {"subject": "한국사", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=56370"},
+    {"subject": "한국사", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=46305"},
+    {"subject": "한국사", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55101"},
+    {"subject": "한국사", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=44175"},
+    {"subject": "한국사", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=54406"},
+    {"subject": "한국사", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=57153"},
 
     {"subject": "세계지리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55629&MAKE_FLG=1&tec_cd=lksbutt"},
     {"subject": "세계지리", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55868&MAKE_FLG=1&tec_cd=lksbutt"},
@@ -105,6 +140,15 @@
     {"subject": "생명과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55607&MAKE_FLG=1&tec_cd=gkswhdcjf"},
     {"subject": "생명과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49278&MAKE_FLG=1&tec_cd=gkswhdcjf"},
     {"subject": "생명과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55648&MAKE_FLG=1&tec_cd=bis100"},
+    {"subject": "생명과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=50955"},
+    {"subject": "생명과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55364"},
+    {"subject": "생명과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=56386"},
+
+    {"subject": "생명과학2", "url": "https://www.megastudy.net/lecmain/mainn/chr_detail/academy_detailview.asp?CHR_CD=54310"},
+    {"subject": "생명과학2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49419"},
+    {"subject": "생명과학2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=47692"},
+    {"subject": "생명과학2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=54464"},
+    {"subject": "생명과학2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=39571"},
 
     {"subject": "지구과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55605&MAKE_FLG=1&tec_cd=cs6425"},
     {"subject": "지구과학1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55699&MAKE_FLG=1&tec_cd=ozscience"},
@@ -112,5 +156,13 @@
 
     {"subject": "지구과학2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49414&MAKE_FLG=1&tec_cd=ozscience"},
     {"subject": "지구과학2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49325&MAKE_FLG=1&tec_cd=ozscience"},
-    {"subject": "지구과학2", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=57175"}
+    {"subject": "지구과학2", "url": "https://www.megastudy.net/lecmain/mainh/chr_detail/ready_detailview.asp?CHR_CD=57175"},
+
+    {"subject": "물리1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=53898"},
+    {"subject": "물리1", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55845"},
+    {"subject": "물리학", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=53484"},
+
+    {"subject": "물리2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49474"},
+    {"subject": "물리2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=49474"},
+    {"subject": "물리2", "url": "https://www.megastudy.net/lecmain/mains/chr_detail/lecture_detailview.asp?CHR_CD=55945"}
 ]

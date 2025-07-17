@@ -37,9 +37,9 @@ SUBJECT_MAP = {
 
 def create_curriculum(get_user_question: str, retry: int = 0):
     embeddings = OpenAIEmbeddings()
+    subject_slug = ""
     if "ebsi" in get_user_question:
         collection_tmp = "ebsi"
-        subject_slug = ""
         if "국어" in get_user_question:
             subject_slug = SUBJECT_MAP["국어"]  # "korean"
             persist_dir = os.path.abspath("./chroma_db/ebsi_korean")
@@ -115,8 +115,79 @@ def create_curriculum(get_user_question: str, retry: int = 0):
         print("ebsi chroma db path:", persist_dir)
     elif "mega" in get_user_question:
         collection_tmp = "mega"
-        persist_dir = os.path.abspath("./mega_chroma_db")
-        print("megastudy chroma db path:", persist_dir)
+        if "국어" in get_user_question:
+            subject_slug = SUBJECT_MAP["국어"]  # "korean"
+            persist_dir = os.path.abspath("./chroma_db/mega_korean")
+        elif "수학" in get_user_question:
+            subject_slug = SUBJECT_MAP["수학"]  # "math"
+            persist_dir = os.path.abspath("./chroma_db/mega_math")
+        elif "영어" in get_user_question:
+            subject_slug = SUBJECT_MAP["영어"]  # "english"
+            persist_dir = os.path.abspath("./chroma_db/mega_english")
+        elif "한국사" in get_user_question:
+            subject_slug = SUBJECT_MAP["한국사"]  # "korean_history"
+            persist_dir = os.path.abspath("./chroma_db/mega_korean_history")
+        elif "경제" in get_user_question:
+            subject_slug = SUBJECT_MAP["경제"]  # "economics"
+            persist_dir = os.path.abspath("./chroma_db/mega_economics")
+        elif "동아시아사" in get_user_question:
+            subject_slug = SUBJECT_MAP["동아시아사"]  # "east_asian_history"
+            persist_dir = os.path.abspath("./chroma_db/mega_east_asian_history")
+        elif "세계사" in get_user_question:
+            subject_slug = SUBJECT_MAP["세계사"]  # "world_history"
+            persist_dir = os.path.abspath("./chroma_db/mega_world_history")
+        elif "세계지리" in get_user_question:
+            subject_slug = SUBJECT_MAP["세계지리"]  # "world_geography"
+            persist_dir = os.path.abspath("./chroma_db/mega_world_geography")
+        elif "한국지리" in get_user_question:
+            subject_slug = SUBJECT_MAP["한국지리"]  # "korean_geography"
+            persist_dir = os.path.abspath("./chroma_db/mega_korean_geography")
+        elif "사회문화" in get_user_question:
+            subject_slug = SUBJECT_MAP["사회문화"]  # "sociology"
+            persist_dir = os.path.abspath("./chroma_db/mega_sociology")
+        elif "윤리와 사상" in get_user_question:
+            subject_slug = SUBJECT_MAP["윤리와 사상"]  # "ethics_philosophy"
+            persist_dir = os.path.abspath("./chroma_db/mega_ethics_philosophy")
+        elif "생활과 윤리" in get_user_question:
+            subject_slug = SUBJECT_MAP["생활과 윤리"]  # "ethics_life"
+            persist_dir = os.path.abspath("./chroma_db/mega_ethics_life")
+        elif "물리1" in get_user_question:
+            subject_slug = SUBJECT_MAP["물리1"]  # "physics1"
+            persist_dir = os.path.abspath("./chroma_db/mega_physics1")
+        elif "물리2" in get_user_question:
+            subject_slug = SUBJECT_MAP["물리2"]  # "physics2"
+            persist_dir = os.path.abspath("./chroma_db/mega_physics2")
+        elif "화학1" in get_user_question:
+            subject_slug = SUBJECT_MAP["화학1"]  # "chemistry1"
+            persist_dir = os.path.abspath("./chroma_db/mega_chemistry1")
+        elif "화학2" in get_user_question:
+            subject_slug = SUBJECT_MAP["화학2"]  # "chemistry2"
+            persist_dir = os.path.abspath("./chroma_db/mega_chemistry2")
+        elif "생명과학1" in get_user_question:
+            subject_slug = SUBJECT_MAP["생명과학1"]  # "biology1"
+            persist_dir = os.path.abspath("./chroma_db/mega_biology1")
+        elif "생명과학2" in get_user_question:
+            subject_slug = SUBJECT_MAP["생명과학2"]  # "biology2"
+            persist_dir = os.path.abspath("./chroma_db/mega_biology2")
+        elif "지구과학1" in get_user_question:
+            subject_slug = SUBJECT_MAP["지구과학1"]  # "earth_science1"
+            persist_dir = os.path.abspath("./chroma_db/mega_earth_science1")
+        elif "지구과학2" in get_user_question:
+            subject_slug = SUBJECT_MAP["지구과학2"]  # "earth_science2"
+            persist_dir = os.path.abspath("./chroma_db/mega_earth_science2")
+        elif "통합사회1" in get_user_question:
+            subject_slug = SUBJECT_MAP["통합사회1"]  # "integrated_social1"
+            persist_dir = os.path.abspath("./chroma_db/mega_integrated_social1")
+        elif "통합사회1,2" in get_user_question:
+            subject_slug = SUBJECT_MAP["통합사회1,2"]  # "integrated_social1_2"
+            persist_dir = os.path.abspath("./chroma_db/mega_integrated_social1_2")
+        elif "통합사회2" in get_user_question:
+            subject_slug = SUBJECT_MAP["통합사회2"]  # "integrated_social2"
+            persist_dir = os.path.abspath("./chroma_db/mega_integrated_social2")
+        else:
+            raise ValueError("❌ 질문에서 과목명을 찾을 수 없습니다.")
+            
+        print("ebsi chroma db path:", persist_dir)
     db = Chroma(
     embedding_function=embeddings,
     persist_directory=persist_dir,
